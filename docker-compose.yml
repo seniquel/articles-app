@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  articles-db:
+    image: articles-db
+    container_name: articles-db
+    networks:
+      - articles-network
+    volumes:
+      - articles-db-data:/var/lib/mysql
+    ports:
+      - "9000:3306"
+
+networks:
+  articles-network:
+
+volumes:
+  articles-db-data:
