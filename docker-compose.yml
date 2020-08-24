@@ -2,19 +2,31 @@ version: "3.8"
 
 services:
   articles-db:
+    build: ./articles-db
     image: articles-db
     container_name: articles-db
     networks:
       - articles-network
     volumes:
       - articles-db-data:/var/lib/mysql
+      
   articles-back:
+    build: ./articles-back
     image: articles-back
     container_name: articles-back
     depends_on:
         - articles-db
+    networks:
+      - articles-network
+      
+  articles-front:
+    build: ./articles-front
+    image: articles-front
+    container_name: articles-front
+    depends_on:
+        - articles-back
     ports:
-        - "9000:8080"
+        - "9000:80"
     networks:
       - articles-network
 

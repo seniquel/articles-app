@@ -1,0 +1,24 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 my-5" *ngFor="let art of listeArticles">
+      <div class="card">
+        <div class="card-body">
+          <ul class="list-group">
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between">
+                <div class="font-weight-bold card-text">Libellé</div>
+                <div class="card-text">{{art.libelle}}</div>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between">
+                <div class="font-weight-bold card-text">Prix</div>
+                <div class="card-text">{{art.prix | number:'10.2-2'}} €</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

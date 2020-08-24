@@ -1,0 +1,40 @@
+<div class="container-fluid p-5">
+  <form #etatForm="ngForm">
+    <div class="form-group row">
+      <div class="col-md-8">
+        <ul class="list-group">
+          <li class="list-group-item">
+            <div class="d-flex justify-content-between">
+              <div class="font-weight-bold">Libelle</div>
+              <div>
+                <input type="text" class="form-control" name="libelle" [(ngModel)]="art.libelle" #etatLibelle="ngModel"
+                  placeholder="Entrez le libelle" required minlength=2>
+              </div>
+            </div>
+            <div *ngIf="etatLibelle.dirty && etatLibelle.invalid" class="float-right text-danger">Le libellé est invalide.</div>
+          </li>
+          <li class="list-group-item">
+            <div class="d-flex justify-content-between">
+              <div class="font-weight-bold">Prix</div>
+              <div>
+                <input type="number" class="form-control" name="prenoms" [(ngModel)]="art.prix" #etatPrix="ngModel"
+                  placeholder="Entrez le prix" required>
+              </div>
+            </div>
+            <div *ngIf="etatPrix.dirty && etatPrix.invalid" class="float-right text-danger">Le prix est
+              invalide.
+            </div>
+        </ul>
+      </div>
+    </div>
+
+      <div class="form-group row">
+        <div class="col-md-4">
+          <button type="ngbButton" class="btn btn-primary my-5" *ngIf="etatForm.valid"
+            (click)="validerArticle()">Valider</button>
+          <button type="ngbButton" class="btn btn-secondary my-5" *ngIf="!etatForm.valid"
+            disabled>Valider</button>
+        </div>
+      </div>
+  </form>
+</div>
